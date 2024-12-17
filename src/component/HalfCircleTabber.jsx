@@ -15,7 +15,7 @@ const FullCircleHalfDTabber = () => {
   const centerTabIndex = Math.floor(totalTabs / 2);
   const activeTabIndex = tabs.findIndex((tab) => tab.id === activeTab);
 
-  // Calculate the rotation for the full circle based on active tab
+  // Calculate rotation angle for the full-circle layout
   const rotationAngle =
     (centerTabIndex - activeTabIndex) * (180 / (totalTabs - 1));
 
@@ -64,9 +64,6 @@ const FullCircleHalfDTabber = () => {
           );
         })}
       </div>
-
-      {/* Static Center Indicator */}
-      {/* <div className="absolute top-0 w-6 h-6 bg-red-500 rounded-full border-2 border-red-500"></div> */}
     </div>
   );
 };
