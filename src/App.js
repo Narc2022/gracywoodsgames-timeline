@@ -1,3 +1,12 @@
+import CircleTaber from "./component/CircleTaber";
+import LocationContainer from "./component/LocationContainer";
+import RotateIndicatorTabber from "./component/RotateIndicatorTabber";
+
 export default function App() {
-  return <h1 className="text-3xl font-bold underline">Hello world!</h1>;
+  return (
+    <>
+      <RotateIndicatorTabber />
+      <LocationContainer />
+    </>
+  );
 }
