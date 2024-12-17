@@ -9,7 +9,6 @@ const FullCircleHalfDTabber = () => {
     { id: 3, value: "3388 R.G.E" },
     { id: 4, value: "1425 R.G.E" },
     { id: 5, value: "3312 R.G.E" },
-    { id: 6, value: "3388 R.G.E" },
   ];
 
   const totalTabs = tabs.length;
@@ -21,7 +20,10 @@ const FullCircleHalfDTabber = () => {
     (centerTabIndex - activeTabIndex) * (180 / (totalTabs - 1));
 
   return (
-    <div className="relative h-64 w-64 mx-auto flex items-center justify-center">
+    <div
+      className="relative h-64 w-64"
+      style={{ marginTop: "10px", marginLeft: "-114px" }}
+    >
       {/* Full Circle */}
       <div
         className="relative h-64 w-64 border-2 border-gray-300 rounded-full transition-transform duration-500"
@@ -64,7 +66,7 @@ const FullCircleHalfDTabber = () => {
       </div>
 
       {/* Static Center Indicator */}
-      <div className="absolute top-0 w-6 h-6 bg-red-500 rounded-full border-2 border-red-500"></div>
+      {/* <div className="absolute top-0 w-6 h-6 bg-red-500 rounded-full border-2 border-red-500"></div> */}
     </div>
   );
 };
