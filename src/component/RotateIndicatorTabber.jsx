@@ -32,16 +32,20 @@ const RotateIndicatorTabber = () => {
 
   return (
     <div className="flex">
-      <div className="mb-4 border-b border-gray-200 dark:border-gray-700 ">
-        <ul className="-mb-px text-sm font-medium text-center" role="tablist">
+      <div className="relative w-64 h-32 overflow-hidden rounded-t-full border-b-4 border-gray-200 dark:border-gray-700">
+        {/* Tab Buttons */}
+        <ul
+          className="absolute flex justify-between w-full top-6"
+          role="tablist"
+        >
           {tabs.map((tab) => (
-            <li key={tab.id} className="me-2" role="presentation">
+            <li key={tab.id} className="flex-1 text-center" role="presentation">
               <button
                 onClick={() => setActiveTab(tab.id)}
-                className={`inline-block p-4 border-b-2 rounded-t-lg ${
+                className={`p-2 w-16 h-16 rounded-full transition-all duration-300 ${
                   activeTab === tab.id
-                    ? "text-blue-600 border-blue-600"
-                    : "hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300"
+                    ? "bg-blue-600 text-white translate-y-[-10px] shadow-lg"
+                    : "bg-gray-200 text-gray-600 hover:bg-gray-300"
                 }`}
                 type="button"
                 role="tab"
