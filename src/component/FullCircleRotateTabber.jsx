@@ -73,80 +73,85 @@ const FullCircleRotateTabber = () => {
   };
 
   return (
-    <div
-      className="flex bg-cover bg-center h-full w-full"
-      style={{
-        backgroundImage: `url('/assets/bulgarian-war.jpg')`,
-      }}
-    >
-      <div className="relative -ml-[7%] mt-20">
-        {/* Rotating Half Circle */}
-        <div className="relative h-80 w-80 mb-20">
-          <div
-            className="relative h-80 w-80 border-2 border-gray-300 rounded-full transition-transform duration-500"
-            style={{
-              transform: `rotate(${rotationAngle ? rotationAngle : 10}deg)`,
-            }}
-          >
-            {tabs.map((tab, index) => {
-              const angle = (150 / (totalTabs - 1)) * index; // Evenly distribute tabs
-              const isActive = activeTab === tab.id;
+    <>
+      <h1 className="bg-black text-white p-7 pl-10 font-bold text-[26px]">
+        TIMELINE
+      </h1>
+      <div
+        className="flex bg-cover bg-center h-full w-full border-t-[3px] border-b-[3px] border-gray-300"
+        style={{
+          backgroundImage: `url('/assets/bulgarian-war.jpg')`,
+        }}
+      >
+        <div className="relative -ml-[15%] mt-20">
+          {/* Rotating Half Circle */}
+          <div className="relative h-[480px] w-[480px] mb-20">
+            <div
+              className="relative h-[480px] w-[480px] border-[3px] border-gray-300 rounded-full transition-transform duration-500"
+              style={{
+                transform: `rotate(${rotationAngle ? rotationAngle : 15}deg)`,
+              }}
+            >
+              {tabs.map((tab, index) => {
+                const angle = (150 / (totalTabs - 1)) * index; // Evenly distribute tabs
+                const isActive = activeTab === tab.id;
 
-              const positionStyle = {
-                top: `${50 - Math.cos((angle * Math.PI) / 180) * 50}%`,
-                left: `${50 + Math.sin((angle * Math.PI) / 180) * 50}%`,
-              };
+                const positionStyle = {
+                  top: `${50 - Math.cos((angle * Math.PI) / 180) * 50}%`,
+                  left: `${50 + Math.sin((angle * Math.PI) / 180) * 50}%`,
+                };
 
-              return (
-                <button
-                  key={tab.id}
-                  onClick={() => setActiveTab(tab.id)}
-                  className={`absolute w-6 h-6 rounded-full border-2 transform -translate-x-1/2 -translate-y-1/2 transition-all duration-300 ${
-                    isActive
-                      ? "bg-blue-600 border-blue-600"
-                      : "bg-white border-gray-300"
-                  }`}
-                  style={positionStyle}
-                >
-                  <span
-                    className={`absolute top-8 text-xs ${
-                      isActive ? "text-blue-600" : "text-gray-400"
+                return (
+                  <button
+                    key={tab.id}
+                    onClick={() => setActiveTab(tab.id)}
+                    className={`absolute w-4 h-4 rounded-full border-2 transform -translate-x-1/2 -translate-y-1/2 transition-all duration-300 ${
+                      isActive
+                        ? "bg-pink-600 border-gray-300 w-5 h-5"
+                        : "bg-white "
                     }`}
-                    style={{
-                      transform: `translateX(-70%) rotate(-${
-                        rotationAngle ? rotationAngle : 10
-                      }deg)`,
-                    }}
+                    style={positionStyle}
                   >
-                    {tab.value}
-                  </span>
-                </button>
-              );
-            })}
+                    <span
+                      className={`absolute top-8 text-xs ${
+                        isActive ? "text-blue-600" : "text-gray-400"
+                      }`}
+                      style={{
+                        transform: `translateX(-70%) rotate(-${
+                          rotationAngle ? rotationAngle : 10
+                        }deg)`,
+                      }}
+                    >
+                      {tab.value}
+                    </span>
+                  </button>
+                );
+              })}
+            </div>
           </div>
-        </div>
 
-        {/* Tab Content */}
+          {/* Tab Content */}
+        </div>
+        <div className="flex-grow">
+          {tabs.map((tab) => (
+            <div
+              key={tab.id}
+              className={`p-4 rounded-lg bg-gray-50 ${
+                activeTab === tab.id ? "block" : "hidden"
+              }`}
+              role="tabpanel"
+              aria-labelledby={`${tab.id}-tab`}
+              style={cssObject}
+            >
+              <h3 className="text-lg font-semibold text-gray-800 mb-2">
+                {tab.label}
+              </h3>
+              {splitContentIntoParagraphs(tab.content)}
+            </div>
+          ))}
+        </div>
       </div>
-      <div className="flex-grow">
-        {tabs.map((tab) => (
-          <div
-            key={tab.id}
-            className={`p-4 rounded-lg bg-gray-50 ${
-              activeTab === tab.id ? "block" : "hidden"
-            }`}
-            role="tabpanel"
-            aria-labelledby={`${tab.id}-tab`}
-            style={cssObject}
-          >
-            <h3 className="text-lg font-semibold text-gray-800 mb-2">
-              {tab.label}
-            </h3>
-            {splitContentIntoParagraphs(tab.content)}
-          </div>
-        ))}
-      </div>
-    </div>
+    </>
   );
 };
 
