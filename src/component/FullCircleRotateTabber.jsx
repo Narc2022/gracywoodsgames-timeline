@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 
 const FullCircleRotateTabber = () => {
-  const [activeTab, setActiveTab] = useState("settings"); // Default active tab
+  const [activeTab, setActiveTab] = useState("3"); // Default active tab
   const tabs = [
     {
-      id: "profile",
+      id: "1",
       label: "Profile",
       value: "1425 R.G.E",
       content: `Lorem Ipsum is simply dummy text of the printing and typesetting industry.\n\n
@@ -12,7 +12,7 @@ const FullCircleRotateTabber = () => {
         It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.`,
     },
     {
-      id: "dashboard",
+      id: "2",
       label: "Dashboard",
       value: "3312 R.G.E",
       content: `Lorem Ipsum is simply dummy text of the printing and typesetting industry.\n\n
@@ -20,21 +20,21 @@ const FullCircleRotateTabber = () => {
         It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.`,
     },
     {
-      id: "settings",
+      id: "3",
       label: "Settings",
       value: "3388 R.G.E",
       content: `Lorem Ipsum is simply dummy text of the printing and typesetting industry.\n\n
         Lorem Ipsum has been the industry's standard dummy text of the printing and typesetting industry.`,
     },
     {
-      id: "contacts",
+      id: "4",
       label: "Contacts",
       value: "1425 R.G.E",
       content: `Lorem Ipsum is simply dummy text of the printing and typesetting industry.\n\n
         Lorem Ipsum has been the industry's standard dummy text of the printing and typesetting industry.`,
     },
     {
-      id: "about",
+      id: "5",
       label: "About",
       value: "3312 R.G.E",
       content: `Lorem Ipsum is simply dummy text of the printing and typesetting industry.\n\n
@@ -83,23 +83,27 @@ const FullCircleRotateTabber = () => {
           backgroundImage: `url('/assets/bulgarian-war.jpg')`,
         }}
       >
-        <div className="relative -ml-[15%] mt-[50px] overflow-hidden">
+        <div className="relative  mt-[50px] overflow-hidden">
           {/* Rotating Half Circle */}
           <div className="relative h-[480px] w-[520px] mb-[50px]">
             <div
               className="relative h-[480px] w-[480px] border-[3px] border-gray-300 rounded-full transition-transform duration-500"
               style={{
-                transform: `rotate(${rotationAngle ? rotationAngle : 15}deg)`,
+                transform: `rotate(${rotationAngle ? rotationAngle : 30}deg)`,
               }}
             >
               {tabs.map((tab, index) => {
-                const angle = (150 / (totalTabs - 1)) * index; // Evenly distribute tabs
+                const angle = (180 / (totalTabs - 1)) * index; // Evenly distribute tabs
                 const isActive = activeTab === tab.id;
 
                 const positionStyle = {
                   top: `${50 - Math.cos((angle * Math.PI) / 180) * 50}%`,
                   left: `${50 + Math.sin((angle * Math.PI) / 180) * 50}%`,
                 };
+                console.log("rotationAngle", rotationAngle);
+
+                console.log("tab.value.split()", tab.value.split(" "));
+                const textArray = tab.value.split(" ");
 
                 return (
                   <button
@@ -113,14 +117,26 @@ const FullCircleRotateTabber = () => {
                     style={positionStyle}
                   >
                     <span
-                      className={`absolute top-4 text-xs w-[100px] text-center ${
+                      className={`absolute top-4 ${
+                        rotationAngle
+                          ? " top-[2px] left-[-50px] "
+                          : " top-[4px] left-[-43px]"
+                      } ${
+                        index === 4 && rotationAngle === 0 ? "top-[-10px]" : ""
+                      } text-xs w-[100px] text-center ${
                         isActive ? "text-blue-600" : "text-gray-400"
                       }`}
                       style={{
-                        transform: `rotate(${-rotationAngle}deg) translateX(-50%)`,
+                        transform: `rotate(${
+                          rotationAngle ? -rotationAngle : -30
+                        }deg) translateX(-50%)`,
                       }}
                     >
-                      {tab.value}
+                      <span className="font-bold text-[20px]">
+                        {textArray[0]}
+                      </span>
+                      &nbsp;
+                      <span>{textArray[1]}</span>
                     </span>
                   </button>
                 );
