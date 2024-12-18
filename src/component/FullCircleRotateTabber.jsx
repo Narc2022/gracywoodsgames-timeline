@@ -1,42 +1,42 @@
 import React, { useState } from "react";
 
 const FullCircleRotateTabber = () => {
-  const [activeTab, setActiveTab] = useState("profile"); // Default active tab
+  const [activeTab, setActiveTab] = useState("settings"); // Default active tab
   const tabs = [
     {
       id: "profile",
       label: "Profile",
       value: "1425 R.G.E",
       content:
-        "This is some placeholder content for the Profile tab. Clicking another tab will toggle visibility.",
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
     },
     {
       id: "dashboard",
       label: "Dashboard",
       value: "3312 R.G.E",
       content:
-        "This is some placeholder content for the Dashboard tab. Clicking another tab will toggle visibility.",
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
     },
     {
       id: "settings",
       label: "Settings",
       value: "3388 R.G.E",
       content:
-        "This is some placeholder content for the Settings tab. Clicking another tab will toggle visibility.",
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Settings tab. Clicking another tab will toggle visibility.",
     },
     {
       id: "contacts",
       label: "Contacts",
       value: "1425 R.G.E",
       content:
-        "This is some placeholder content for the Contacts tab. Clicking another tab will toggle visibility.",
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Contacts tab. Clicking another tab will toggle visibility.",
     },
     {
       id: "about",
       label: "About",
       value: "3312 R.G.E",
       content:
-        "This is some placeholder content for the About tab. Clicking another tab will toggle visibility.",
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. About tab. Clicking another tab will toggle visibility.",
     },
   ];
 
@@ -49,16 +49,23 @@ const FullCircleRotateTabber = () => {
     (centerTabIndex - activeTabIndex) * (180 / (totalTabs - 1));
 
   return (
-    <div className="flex">
-      <div className="flex flex-col items-center">
+    <div
+      className="flex bg-cover bg-center h-full w-full"
+      style={{
+        backgroundImage: `url('/assets/bulgarian-war.jpg')`,
+      }}
+    >
+      <div className="relative -ml-[7%] mt-20">
         {/* Rotating Half Circle */}
-        <div className="relative h-64 w-64 mb-8">
+        <div className="relative h-80 w-80 mb-20">
           <div
-            className="relative h-64 w-64 border-2 border-gray-300 rounded-full transition-transform duration-500"
-            style={{ transform: `rotate(${rotationAngle}deg)` }}
+            className="relative h-80 w-80 border-2 border-gray-300 rounded-full transition-transform duration-500"
+            style={{
+              transform: `rotate(${rotationAngle ? rotationAngle : 10}deg)`,
+            }}
           >
             {tabs.map((tab, index) => {
-              const angle = (180 / (totalTabs - 1)) * index; // Evenly distribute tabs
+              const angle = (150 / (totalTabs - 1)) * index; // Evenly distribute tabs
               const isActive = activeTab === tab.id;
 
               const positionStyle = {
@@ -81,7 +88,11 @@ const FullCircleRotateTabber = () => {
                     className={`absolute top-8 text-xs ${
                       isActive ? "text-blue-600" : "text-gray-400"
                     }`}
-                    style={{ transform: "translateX(-50%)" }}
+                    style={{
+                      transform: `translateX(-70%) rotate(-${
+                        rotationAngle ? rotationAngle : 10
+                      }deg)`,
+                    }}
                   >
                     {tab.value}
                   </span>
@@ -93,7 +104,7 @@ const FullCircleRotateTabber = () => {
 
         {/* Tab Content */}
       </div>
-      <div className="w-64">
+      <div className="flex-grow">
         {tabs.map((tab) => (
           <div
             key={tab.id}
