@@ -89,7 +89,7 @@ const FullCircleRotateTabber = () => {
             <div
               className="relative h-[480px] w-[480px] border-[3px] border-gray-300 rounded-full transition-transform duration-500"
               style={{
-                transform: `rotate(${rotationAngle ? rotationAngle : 30}deg)`,
+                transform: `rotate(${rotationAngle ? rotationAngle : 0}deg)`,
               }}
             >
               {tabs.map((tab, index) => {
@@ -100,9 +100,7 @@ const FullCircleRotateTabber = () => {
                   top: `${50 - Math.cos((angle * Math.PI) / 180) * 50}%`,
                   left: `${50 + Math.sin((angle * Math.PI) / 180) * 50}%`,
                 };
-                console.log("rotationAngle", rotationAngle);
 
-                console.log("tab.value.split()", tab.value.split(" "));
                 const textArray = tab.value.split(" ");
 
                 return (
