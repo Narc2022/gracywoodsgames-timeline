@@ -87,7 +87,7 @@ const FullCircleRotateTabber = () => {
           {/* Rotating Half Circle */}
           <div className="relative h-[480px] w-[520px] mb-[50px]">
             <div
-              className="relative h-[480px] w-[480px] border-[3px] border-gray-300 rounded-full transition-transform duration-500"
+              className="relative h-[480px] w-[480px] border-[3px] border-gray-300 rounded-full transition-transform duration-500 mt-3"
               style={{
                 transform: `rotate(${rotationAngle ? rotationAngle : 0}deg)`,
               }}
