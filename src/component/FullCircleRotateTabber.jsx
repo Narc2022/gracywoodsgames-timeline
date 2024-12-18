@@ -86,9 +86,9 @@ const FullCircleRotateTabber = () => {
           backgroundImage: `url('/assets/bulgarian-war.jpg')`,
         }}
       >
-        <div className="relative -ml-[15%] mt-[50px]">
+        <div className="relative -ml-[15%] mt-[50px] overflow-hidden">
           {/* Rotating Half Circle */}
-          <div className="relative h-[480px] w-[480px] mb-[50px]">
+          <div className="relative h-[480px] w-[520px] mb-[50px]">
             <div
               className="relative h-[480px] w-[480px] border-[3px] border-gray-300 rounded-full transition-transform duration-500"
               style={{
