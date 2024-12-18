@@ -116,12 +116,13 @@ const FullCircleRotateTabber = () => {
                     style={positionStyle}
                   >
                     <span
-                      className={`absolute top-8 text-xs ${
+                      className={`absolute top-4 text-xs w-[100px] ${
                         isActive ? "text-blue-600" : "text-gray-400"
-                      }`}
+                      }
+                      ${isActive ? "text-blue-600" : "text-gray-400"}`}
                       style={{
-                        transform: `translateX(-70%) rotate(-${
-                          rotationAngle ? rotationAngle : 10
+                        transform: `translateX(-100%) rotate(-${
+                          rotationAngle ? rotationAngle : 15
                         }deg)`,
                       }}
                     >
