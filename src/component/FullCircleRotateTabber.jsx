@@ -83,7 +83,7 @@ const FullCircleRotateTabber = () => {
           backgroundImage: `url('/assets/bulgarian-war.jpg')`,
         }}
       >
-        <div className="relative  mt-[50px] overflow-hidden">
+        <div className="relative -ml-[15%] mt-[50px] overflow-hidden">
           {/* Rotating Half Circle */}
           <div className="relative h-[480px] w-[520px] mb-[50px]">
             <div
@@ -119,14 +119,20 @@ const FullCircleRotateTabber = () => {
                         rotationAngle
                           ? " top-[2px] left-[-50px] "
                           : " top-[4px] left-[-43px]"
+                      }  ${
+                        index === 0 && rotationAngle === 0
+                          ? "top-[20px] left-[40px]"
+                          : ""
                       } ${
-                        index === 4 && rotationAngle === 0 ? "top-[-10px]" : ""
+                        index === 4 && rotationAngle === 0
+                          ? "top-[-20px] left-[40px]"
+                          : ""
                       } text-xs w-[100px] text-center ${
                         isActive ? "text-blue-600" : "text-gray-400"
                       }`}
                       style={{
                         transform: `rotate(${
-                          rotationAngle ? -rotationAngle : -30
+                          rotationAngle ? -rotationAngle : -0
                         }deg) translateX(-50%)`,
                       }}
                     >
