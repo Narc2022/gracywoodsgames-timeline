@@ -9,7 +9,7 @@ const FullCircleRotateTabber = () => {
       value: "1425 R.G.E",
       content: `Lorem Ipsum is simply dummy text of the printing and typesetting industry.\n\n
         Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.\n\n
-        It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.`,
+        It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.`,
     },
     {
       id: "dashboard",
@@ -17,31 +17,28 @@ const FullCircleRotateTabber = () => {
       value: "3312 R.G.E",
       content: `Lorem Ipsum is simply dummy text of the printing and typesetting industry.\n\n
         Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.\n\n
-        It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.`,
+        It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.`,
     },
     {
       id: "settings",
       label: "Settings",
       value: "3388 R.G.E",
       content: `Lorem Ipsum is simply dummy text of the printing and typesetting industry.\n\n
-        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.\n\n
-        It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Settings tab. Clicking another tab will toggle visibility.`,
+        Lorem Ipsum has been the industry's standard dummy text of the printing and typesetting industry.`,
     },
     {
       id: "contacts",
       label: "Contacts",
       value: "1425 R.G.E",
       content: `Lorem Ipsum is simply dummy text of the printing and typesetting industry.\n\n
-        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.\n\n
-        It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Contacts tab. Clicking another tab will toggle visibility.`,
+        Lorem Ipsum has been the industry's standard dummy text of the printing and typesetting industry.`,
     },
     {
       id: "about",
       label: "About",
       value: "3312 R.G.E",
       content: `Lorem Ipsum is simply dummy text of the printing and typesetting industry.\n\n
-        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.\n\n
-        It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. About tab. Clicking another tab will toggle visibility.`,
+        Lorem Ipsum has been the industry's standard dummy text of the printing and typesetting industry.`,
     },
   ];
 
@@ -116,14 +113,11 @@ const FullCircleRotateTabber = () => {
                     style={positionStyle}
                   >
                     <span
-                      className={`absolute top-4 text-xs w-[100px] ${
+                      className={`absolute top-4 text-xs w-[100px] text-center ${
                         isActive ? "text-blue-600" : "text-gray-400"
-                      }
-                      ${isActive ? "text-blue-600" : "text-gray-400"}`}
+                      }`}
                       style={{
-                        transform: `translateX(-100%) rotate(-${
-                          rotationAngle ? rotationAngle : 15
-                        }deg)`,
+                        transform: `rotate(${-rotationAngle}deg) translateX(-50%)`,
                       }}
                     >
                       {tab.value}
