@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 
 const FullCircleRotateTabber = () => {
-  const [activeTab, setActiveTab] = useState("3"); // Default active tab
+  const [activeTab, setActiveTab] = useState("3");
   const tabs = [
     {
       id: "1",
-      label: "Profile",
+      label: "US",
       value: "1425 R.G.E",
       content: `Lorem Ipsum is simply dummy text of the printing and typesetting industry.\n\n
         Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.\n\n
@@ -13,7 +13,7 @@ const FullCircleRotateTabber = () => {
     },
     {
       id: "2",
-      label: "Dashboard",
+      label: "UK",
       value: "3312 R.G.E",
       content: `Lorem Ipsum is simply dummy text of the printing and typesetting industry.\n\n
         Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.\n\n
@@ -21,21 +21,21 @@ const FullCircleRotateTabber = () => {
     },
     {
       id: "3",
-      label: "Settings",
+      label: "India",
       value: "3388 R.G.E",
       content: `Lorem Ipsum is simply dummy text of the printing and typesetting industry.\n\n
         Lorem Ipsum has been the industry's standard dummy text of the printing and typesetting industry.`,
     },
     {
       id: "4",
-      label: "Contacts",
+      label: "China",
       value: "1425 R.G.E",
       content: `Lorem Ipsum is simply dummy text of the printing and typesetting industry.\n\n
         Lorem Ipsum has been the industry's standard dummy text of the printing and typesetting industry.`,
     },
     {
       id: "5",
-      label: "About",
+      label: "Japan",
       value: "3312 R.G.E",
       content: `Lorem Ipsum is simply dummy text of the printing and typesetting industry.\n\n
         Lorem Ipsum has been the industry's standard dummy text of the printing and typesetting industry.`,
@@ -66,7 +66,10 @@ const FullCircleRotateTabber = () => {
     const paragraphs = content.split("\n\n");
 
     return paragraphs.map((text, index) => (
-      <p key={index} className="text-sm text-white">
+      <p
+        key={index}
+        className="font-urbanist text-sm md:text-base leading-relaxed rounded-md"
+      >
         {text}
       </p>
     ));
@@ -127,15 +130,13 @@ const FullCircleRotateTabber = () => {
                           : " top-[4px] left-[-43px]"
                       }  ${
                         index === 0 && rotationAngle === 0
-                          ? "top-[30px] left-[40px]"
+                          ? "top-[35px] left-[40px]"
                           : ""
                       } ${
                         index === 4 && rotationAngle === 0
-                          ? "top-[-30px] left-[40px]"
+                          ? "top-[-35px] left-[40px]"
                           : ""
-                      } text-xs w-[100px] text-center ${
-                        isActive ? "text-blue-600" : "text-gray-400"
-                      }`}
+                      } text-xs w-[100px] text-center  text-white`}
                       style={{
                         transform: `rotate(${
                           rotationAngle ? -rotationAngle : -0
@@ -167,9 +168,14 @@ const FullCircleRotateTabber = () => {
               aria-labelledby={`${tab.id}-tab`}
               style={cssObject}
             >
-              <h3 className="text-lg font-bold text-[26px] text-white mb-2">
+              <h3 className="text-[26px] text-white  font-urbanist text-lg md:text-2xl font-bold mb-4 rounded-md">
                 {tab.label}
               </h3>
+
+              {splitContentIntoParagraphs(tab.content)}
+              <br />
+              {splitContentIntoParagraphs(tab.content)}
+              <br />
               {splitContentIntoParagraphs(tab.content)}
             </div>
           ))}

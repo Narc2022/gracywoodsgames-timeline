@@ -1,10 +1,11 @@
+// Hooks
 import { useState } from "react";
-import React from "react";
+
+// Icons
 import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
 
 import "tiny-slider/dist/tiny-slider.css";
 
-import "../css/slider.css";
 const Location = ({ tlIndex }) => {
   const handleClickMap = (locationName) => {
     const googleMapsUrl = `https://www.google.com/maps?q=${encodeURIComponent(
@@ -74,7 +75,7 @@ const Location = ({ tlIndex }) => {
         <div className="relative rounded-md">
           {/* Image Section */}
           <div className="relative m-h-[100%] max-w-[50%] overlay-hidden">
-            <div className="relative w-full h-64 md:h-96 rounded-md">
+            <div className="relative w-full h-70 md:h-96 rounded-md">
               <div
                 className="flex w-full h-full transition-transform duration-500 ease-in-out"
                 style={{
@@ -96,18 +97,18 @@ const Location = ({ tlIndex }) => {
               </div>
             </div>
             {/* Navigation Buttons */}
-            <div className="font-urbanist absolute top-[40%] left-[97%] transform -translate-y-1/2 flex gap-4">
+            <div className="font-urbanist absolute top-[30%] left-[97%] transform -translate-y-1/2 flex gap-4">
               <button
                 onClick={handleNext}
-                className="w-10 h-10 rounded-full bg-pink-500 flex items-center justify-center text-white shadow-md"
+                className="w-[50px] h-[50px] rounded-full bg-pink-500 flex items-center justify-center text-white shadow-md"
               >
                 <FaArrowRight />
               </button>
             </div>
-            <div className="font-urbanist absolute top-[20%] left-[97%] transform -translate-y-1/2 flex gap-4">
+            <div className="font-urbanist absolute top-[15%] left-[97%] transform -translate-y-1/2 flex gap-4">
               <button
                 onClick={handlePrev}
-                className="w-10 h-10 rounded-full bg-pink-500 flex items-center justify-center text-white shadow-md"
+                className="w-[50px] h-[50px] rounded-full bg-pink-500 flex items-center justify-center text-white shadow-md"
               >
                 <FaArrowLeft />
               </button>
@@ -117,7 +118,7 @@ const Location = ({ tlIndex }) => {
           {/* Text Section */}
           <div
             style={{ backgroundColor: "rgb(77, 115, 182)" }}
-            className="font-urbanist ml-[40%] mt-[-10%] md:mt-[-2%] p-6 md:p-8 rounded-2xl"
+            className="font-urbanist ml-[40%] mt-[-10%] md:mt-[-2%] p-6 md:p-12 md:py-[100px] rounded-l-[25px]"
           >
             {imagewisedata[tlIndex][currentIndex] ? (
               <h3 className="font-urbanist text-lg md:text-2xl font-bold mb-4 rounded-md">
@@ -133,21 +134,21 @@ const Location = ({ tlIndex }) => {
             ) : (
               <p></p>
             )}
+            <div className="w-full flex justify-end">
+              <div className="font-urbanist w-[400px] h-[150px] bg-[#373737] rounded-l-[25px] relative top-[-294px] flex justify-left right-[-47px]">
+                <button
+                  onClick={() =>
+                    handleClickMap(imagewisedata[tlIndex][currentIndex].country)
+                  }
+                  className="ml-[80px] font-urbanist bg-gray-800 border-2 border-pink-500 text-pink-500 px-4 py-2 rounded-full hover:bg-pink-500 hover:text-white transition my-auto"
+                >
+                  View Map
+                </button>
+              </div>
+            </div>
           </div>
 
           {/* View Map Button */}
-          <div className="w-full flex justify-end">
-            <div className="font-urbanist w-[400px] h-[150px]   bg-[#373737] rounded-l-[25px] relative top-[-280px] flex justify-center">
-              <button
-                onClick={() =>
-                  handleClickMap(imagewisedata[tlIndex][currentIndex].country)
-                }
-                className="font-urbanist bg-gray-800 border-2 border-pink-500 text-pink-500 px-4 py-2 rounded-full hover:bg-pink-500 hover:text-white transition my-auto"
-              >
-                View Map
-              </button>
-            </div>
-          </div>
         </div>
       </div>
     </div>
