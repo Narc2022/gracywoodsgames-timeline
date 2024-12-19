@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/gracywoodsgames-timeline/static/css/main.83686a5f.css",
+    "main.js": "/gracywoodsgames-timeline/static/js/main.377287cd.js",
+    "static/js/488.2900a78f.chunk.js": "/gracywoodsgames-timeline/static/js/488.2900a78f.chunk.js",
+    "index.html": "/gracywoodsgames-timeline/index.html",
+    "main.83686a5f.css.map": "/gracywoodsgames-timeline/static/css/main.83686a5f.css.map",
+    "main.377287cd.js.map": "/gracywoodsgames-timeline/static/js/main.377287cd.js.map",
+    "488.2900a78f.chunk.js.map": "/gracywoodsgames-timeline/static/js/488.2900a78f.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.83686a5f.css",
+    "static/js/main.377287cd.js"
+  ]
+}
