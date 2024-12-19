@@ -74,9 +74,15 @@ const FullCircleRotateTabber = () => {
 
   return (
     <>
-      <h1 className="bg-black text-white p-7 pl-10 font-bold text-[26px]">
-        TIMELINE
-      </h1>
+      <div className="bg-black text-white py-4 md:py-10">
+        {/* Wrapper */}
+        <div className="max-w-6xl mx-[100px]">
+          <h2 class="text-xl md:text-3xl font-bold mb-6 font-urbanist">
+            {" "}
+            TIMELINE
+          </h2>
+        </div>
+      </div>
       <div
         className="flex bg-cover bg-center h-full w-full border-t-[3px] border-b-[3px] border-gray-300"
         style={{

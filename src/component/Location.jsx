@@ -1,49 +1,153 @@
-import React, { useRef } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination } from "swiper/modules";
-import SlideItem from "./SlideItem";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
+import { useState } from "react";
+import React from "react";
+import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
 
-const Location = () => {
-  const slideData = [
-    { id: 1, title: "Slide 1", content: "Content for slide 1" },
-    { id: 2, title: "Slide 2", content: "Content for slide 2" },
-    { id: 3, title: "Slide 3", content: "Content for slide 3" },
-    { id: 4, title: "Slide 4", content: "Content for slide 4" },
+import "tiny-slider/dist/tiny-slider.css";
+
+import "../css/slider.css";
+const Location = ({ tlIndex }) => {
+  const handleClickMap = (locationName) => {
+    const googleMapsUrl = `https://www.google.com/maps?q=${encodeURIComponent(
+      locationName
+    )}`;
+    window.open(googleMapsUrl, "_blank"); // Open in a new tab
+  };
+  const importAll = (r) => r.keys().map(r);
+  const [imageIndex, setImageIndex] = useState(0);
+  const imagewisedata = [
+    [
+      {
+        imagepath: "/images/usa1.png",
+        country: "USA",
+        name: "Battles of Lexington and Concord",
+        description:
+          "The first battles of the American War of Independence, which began on April 19, 1775. The shot heard round the world marked the start of the war.The first battles of the American War of Independence, which began on April 19, 1775. The shot heard round the world marked the start of the war.",
+      },
+      {
+        imagepath: "/images/usa2.png",
+        country: "USA",
+        name: "Boston Tea Party",
+        description:
+          "On December 16, 1773, American patriots disguised as Mohawk Indians threw 342 chests of tea into Boston Harbor.The first battles of the American War of Independence, which began on April 19, 1775. The shot heard round the world marked the start of the war.",
+      },
+      {
+        imagepath: "/images/usa3.png",
+        country: "USA",
+        name: "Continental Congress",
+        description:
+          "In 1774, the Continental Congress met to discuss independence from Britain. Thomas Jefferson was chosen to write the Declaration of Independence.The first battles of the American War of Independence, which began on April 19, 1775. The shot heard round the world marked the start of the war.",
+      },
+      {
+        imagepath: "/images/usa4.png",
+        country: "USA",
+        name: "Battle of Bunker Hill",
+        description:
+          "The first major battle of the American Revolution, where the British won but lost over 40% of their men.The first battles of the American War of Independence, which began on April 19, 1775. The shot heard round the world marked the start of the war.",
+      },
+    ],
   ];
 
-  // Create a reference for Swiper
-  const swiperRef = useRef(null);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
+  // Handle next and previous image
+  const handleNext = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === imagewisedata[tlIndex].length - 1 ? 0 : prevIndex + 1
+    );
+  };
+
+  const handlePrev = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === 0 ? imagewisedata[tlIndex].length - 1 : prevIndex - 1
+    );
+  };
   return (
-    <div className="w-full max-w-6xl mx-auto py-8">
-      <h2 className="text-2xl font-bold text-center mb-6">Our Locations</h2>
-      <div className="flex items-center">
-        {/* Swiper Component */}
-        <Swiper
-          spaceBetween={20}
-          slidesPerView={1}
-          onSwiper={(swiper) => (swiperRef.current = swiper)} // Set the Swiper instance
-          modules={[Navigation, Pagination]}
-          className="w-full"
-        >
-          {slideData.map((slide) => (
-            <SwiperSlide key={slide.id}>
-              <SlideItem title={slide.title} content={slide.content} />
-            </SwiperSlide>
-          ))}
-        </Swiper>
+    <div className="bg-black text-white py-4 md:py-10">
+      {/* Wrapper */}
+      <div className="ml-[100px]">
+        {/* Heading */}
+        <h2 className="text-xl md:text-3xl font-bold mb-6 font-urbanist">
+          LOCATIONS
+        </h2>
 
-        {/* Navigation Buttons */}
-        <div className="flex gap-4 mt-4 justify-center">
-          <button onClick={() => swiperRef.current.slidePrev()} className="">
-            Previous
-          </button>
-          <button onClick={() => swiperRef.current.slideNext()} className="">
-            Next
-          </button>
+        {/* Content */}
+        <div className="relative rounded-md">
+          {/* Image Section */}
+          <div className="relative m-h-[100%] max-w-[50%] overlay-hidden">
+            <div className="relative w-full h-64 md:h-96 rounded-md">
+              <div
+                className="flex w-full h-full transition-transform duration-500 ease-in-out"
+                style={{
+                  transform: `translateX(-${imageIndex * 100}%)`,
+                }}
+              >
+                {imagewisedata[tlIndex].map((item, index) => (
+                  <img
+                    key={index}
+                    src={item.imagepath}
+                    alt={`Location ${index}`}
+                    className={`absolute top-0 left-0 w-full h-full object-cover rounded-2xl transition-opacity duration-500 ease-in-out ${
+                      index === currentIndex
+                        ? "opacity-100 z-10"
+                        : "opacity-0 z-0"
+                    }`}
+                  />
+                ))}
+              </div>
+            </div>
+            {/* Navigation Buttons */}
+            <div className="font-urbanist absolute top-[40%] left-[97%] transform -translate-y-1/2 flex gap-4">
+              <button
+                onClick={handleNext}
+                className="w-10 h-10 rounded-full bg-pink-500 flex items-center justify-center text-white shadow-md"
+              >
+                <FaArrowRight />
+              </button>
+            </div>
+            <div className="font-urbanist absolute top-[20%] left-[97%] transform -translate-y-1/2 flex gap-4">
+              <button
+                onClick={handlePrev}
+                className="w-10 h-10 rounded-full bg-pink-500 flex items-center justify-center text-white shadow-md"
+              >
+                <FaArrowLeft />
+              </button>
+            </div>
+          </div>
+
+          {/* Text Section */}
+          <div
+            style={{ backgroundColor: "rgb(77, 115, 182)" }}
+            className="font-urbanist ml-[40%] mt-[-10%] md:mt-[-2%] p-6 md:p-8 rounded-2xl"
+          >
+            {imagewisedata[tlIndex][currentIndex] ? (
+              <h3 className="font-urbanist text-lg md:text-2xl font-bold mb-4 rounded-md">
+                {imagewisedata[tlIndex][currentIndex].name}
+              </h3>
+            ) : (
+              <h3></h3>
+            )}
+            {imagewisedata[tlIndex][currentIndex] ? (
+              <p className="font-urbanist text-sm md:text-base leading-relaxed rounded-md">
+                {imagewisedata[tlIndex][currentIndex].description}
+              </p>
+            ) : (
+              <p></p>
+            )}
+          </div>
+
+          {/* View Map Button */}
+          <div className="w-full flex justify-end">
+            <div className="font-urbanist w-[400px] h-[150px]   bg-[#373737] rounded-l-[25px] relative top-[-280px] flex justify-start">
+              <button
+                onClick={() =>
+                  handleClickMap(imagewisedata[tlIndex][currentIndex].country)
+                }
+                className="font-urbanist bg-gray-800 border-2 border-pink-500 text-pink-500 px-4 py-2 rounded-full hover:bg-pink-500 hover:text-white transition my-auto"
+              >
+                View Map
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
