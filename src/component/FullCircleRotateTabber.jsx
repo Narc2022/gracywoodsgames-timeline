@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import bulgarian from "../assets/bulgarian-war.jpg";
 const FullCircleRotateTabber = () => {
   const [activeTab, setActiveTab] = useState("3");
   const tabs = [
@@ -89,7 +89,7 @@ const FullCircleRotateTabber = () => {
       <div
         className="flex bg-cover bg-center h-full w-full border-t-[3px] border-b-[3px] border-gray-300"
         style={{
-          backgroundImage: `url('/assets/bulgarian-war.jpg')`,
+          backgroundImage: `url(${bulgarian})`,
         }}
       >
         <div className="relative -ml-[15%] mt-[50px] overflow-hidden">

@@ -4,6 +4,10 @@ import { useState } from "react";
 // Icons
 import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
 
+import usa1 from "../images/usa1.png";
+import usa2 from "../images/usa2.png";
+import usa3 from "../images/usa3.png";
+import usa4 from "../images/usa4.png";
 import "tiny-slider/dist/tiny-slider.css";
 
 const Location = ({ tlIndex }) => {
@@ -18,28 +22,28 @@ const Location = ({ tlIndex }) => {
   const imagewisedata = [
     [
       {
-        imagepath: "/images/usa1.png",
+        imagepath: usa1,
         country: "USA",
         name: "Battles of Lexington and Concord",
         description:
           "The first battles of the American War of Independence, which began on April 19, 1775. The shot heard round the world marked the start of the war.The first battles of the American War of Independence, which began on April 19, 1775. The shot heard round the world marked the start of the war.",
       },
       {
-        imagepath: "/images/usa2.png",
+        imagepath: usa2,
         country: "USA",
         name: "Boston Tea Party",
         description:
           "On December 16, 1773, American patriots disguised as Mohawk Indians threw 342 chests of tea into Boston Harbor.The first battles of the American War of Independence, which began on April 19, 1775. The shot heard round the world marked the start of the war.",
       },
       {
-        imagepath: "/images/usa3.png",
+        imagepath: usa3,
         country: "USA",
         name: "Continental Congress",
         description:
           "In 1774, the Continental Congress met to discuss independence from Britain. Thomas Jefferson was chosen to write the Declaration of Independence.The first battles of the American War of Independence, which began on April 19, 1775. The shot heard round the world marked the start of the war.",
       },
       {
-        imagepath: "/images/usa4.png",
+        imagepath: usa4,
         country: "USA",
         name: "Battle of Bunker Hill",
         description:
