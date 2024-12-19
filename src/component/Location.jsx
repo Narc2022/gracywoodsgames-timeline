@@ -137,7 +137,7 @@ const Location = ({ tlIndex }) => {
 
           {/* View Map Button */}
           <div className="w-full flex justify-end">
-            <div className="font-urbanist w-[400px] h-[150px]   bg-[#373737] rounded-l-[25px] relative top-[-280px] flex justify-start">
+            <div className="font-urbanist w-[400px] h-[150px]   bg-[#373737] rounded-l-[25px] relative top-[-280px] flex justify-center">
               <button
                 onClick={() =>
                   handleClickMap(imagewisedata[tlIndex][currentIndex].country)
