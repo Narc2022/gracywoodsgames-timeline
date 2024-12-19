@@ -130,11 +130,11 @@ const FullCircleRotateTabber = () => {
                           : " top-[4px] left-[-43px]"
                       }  ${
                         index === 0 && rotationAngle === 0
-                          ? "top-[35px] left-[40px]"
+                          ? "top-[30px] left-[40px]"
                           : ""
                       } ${
                         index === 4 && rotationAngle === 0
-                          ? "top-[-35px] left-[40px]"
+                          ? "top-[-40px] left-[40px]"
                           : ""
                       } text-xs w-[100px] text-center  text-white`}
                       style={{
