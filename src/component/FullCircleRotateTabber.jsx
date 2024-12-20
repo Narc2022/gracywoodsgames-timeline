@@ -1,7 +1,13 @@
 import React, { useState } from "react";
 import bulgarian from "../assets/bulgarian-war.jpg";
+import bulgarian2 from "../assets/bulgarian-war2.jpg";
+import bulgarian3 from "../assets/bulgarian-war3.jpg";
+import bulgarian4 from "../assets/bulgarian-war4.jpg";
+import bulgarian5 from "../assets/bulgarian-war5.jpg";
+
 const FullCircleRotateTabber = () => {
   const [activeTab, setActiveTab] = useState("3");
+  const [activeImg, setActiveImg] = useState(bulgarian3);
   const tabs = [
     {
       id: "1",
@@ -10,6 +16,7 @@ const FullCircleRotateTabber = () => {
       content: `Lorem Ipsum is simply dummy text of the printing and typesetting industry.\n\n
         Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.\n\n
         It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.`,
+      img: bulgarian,
     },
     {
       id: "2",
@@ -18,6 +25,7 @@ const FullCircleRotateTabber = () => {
       content: `Lorem Ipsum is simply dummy text of the printing and typesetting industry.\n\n
         Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.\n\n
         It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.`,
+      img: bulgarian2,
     },
     {
       id: "3",
@@ -25,6 +33,7 @@ const FullCircleRotateTabber = () => {
       value: "3388 R.G.E",
       content: `Lorem Ipsum is simply dummy text of the printing and typesetting industry.\n\n
         Lorem Ipsum has been the industry's standard dummy text of the printing and typesetting industry.`,
+      img: bulgarian3,
     },
     {
       id: "4",
@@ -32,6 +41,7 @@ const FullCircleRotateTabber = () => {
       value: "1425 R.G.E",
       content: `Lorem Ipsum is simply dummy text of the printing and typesetting industry.\n\n
         Lorem Ipsum has been the industry's standard dummy text of the printing and typesetting industry.`,
+      img: bulgarian4,
     },
     {
       id: "5",
@@ -39,6 +49,7 @@ const FullCircleRotateTabber = () => {
       value: "3312 R.G.E",
       content: `Lorem Ipsum is simply dummy text of the printing and typesetting industry.\n\n
         Lorem Ipsum has been the industry's standard dummy text of the printing and typesetting industry.`,
+      img: bulgarian5,
     },
   ];
 
@@ -75,6 +86,12 @@ const FullCircleRotateTabber = () => {
     ));
   };
 
+  const onIndicatorClick = (tabId) => {
+    setActiveTab(tabId);
+    const selectedTab = tabs.find((tab) => tab.id === tabId);
+    setActiveImg(selectedTab.img);
+  };
+
   return (
     <>
       <div className="bg-black text-white py-4 md:py-10">
@@ -89,7 +106,7 @@ const FullCircleRotateTabber = () => {
       <div
         className="flex bg-cover bg-center h-full w-full border-t-[3px] border-b-[3px] border-gray-300"
         style={{
-          backgroundImage: `url(${bulgarian})`,
+          backgroundImage: `url(${activeImg})`,
         }}
       >
         <div className="relative -ml-[15%] mt-[50px] overflow-hidden">
@@ -116,7 +133,7 @@ const FullCircleRotateTabber = () => {
                 return (
                   <button
                     key={tab.id}
-                    onClick={() => setActiveTab(tab.id)}
+                    onClick={() => onIndicatorClick(tab.id)}
                     className={`absolute w-4 h-4 rounded-full border-2 transform -translate-x-1/2 -translate-y-1/2 transition-all duration-300 ${
                       isActive
                         ? "bg-pink-600 border-gray-300 w-5 h-5"
