@@ -130,16 +130,16 @@ const FullCircleRotateTabber = () => {
                           : " top-[4px] left-[-43px]"
                       }  ${
                         index === 0 && rotationAngle === 0
-                          ? "top-[30px] left-[40px]"
+                          ? "top-5 left-[40px]"
                           : ""
                       } ${
                         index === 4 && rotationAngle === 0
-                          ? "top-[-40px] left-[40px]"
+                          ? "-top-6 left-[40px]"
                           : ""
                       } text-xs w-[100px] text-center  text-white`}
                       style={{
                         transform: `rotate(${
-                          rotationAngle ? -rotationAngle : -0
+                          rotationAngle ? -rotationAngle : 0
                         }deg) translateX(-50%)`,
                       }}
                     >
