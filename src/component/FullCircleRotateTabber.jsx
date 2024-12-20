@@ -111,7 +111,8 @@ const FullCircleRotateTabber = () => {
                 };
 
                 const textArray = tab.value.split(" ");
-
+                console.log("rotationAngle", rotationAngle);
+                console.log("index", index);
                 return (
                   <button
                     key={tab.id}
@@ -141,6 +142,15 @@ const FullCircleRotateTabber = () => {
                         transform: `rotate(${
                           rotationAngle ? -rotationAngle : 0
                         }deg) translateX(-50%)`,
+                        top: `${
+                          index === 0 && rotationAngle === 0
+                            ? "20px"
+                            : index === 4 && rotationAngle === 0
+                            ? "-24px"
+                            : rotationAngle < 0
+                            ? "-10px"
+                            : 0
+                        }`,
                       }}
                     >
                       <span className="font-bold text-[20px]">

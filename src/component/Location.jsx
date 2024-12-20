@@ -17,7 +17,7 @@ const Location = ({ tlIndex }) => {
     )}`;
     window.open(googleMapsUrl, "_blank"); // Open in a new tab
   };
-  const importAll = (r) => r.keys().map(r);
+
   const [imageIndex, setImageIndex] = useState(0);
   const imagewisedata = [
     [
